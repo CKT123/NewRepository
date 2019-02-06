@@ -1,0 +1,7 @@
+---
+- hosts: node
+  tasks:
+  - name: Stopping NGINX service
+    service:
+            name: nginx
+            state: stopped
