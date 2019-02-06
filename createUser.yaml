@@ -5,3 +5,7 @@
       user:
         name: Charchit
         state: present 
+    - name: Create a File
+      file:
+        path: /home/ubuntu/hello123
+        state: touch

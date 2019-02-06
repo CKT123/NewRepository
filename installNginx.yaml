@@ -1,0 +1,11 @@
+---
+- hosts: node
+  tasks:
+    - name: Installing NGINX and Checking status
+      apt:
+        name: nginx
+        state: latest
+    - name: Checking NGINX service status
+      service:
+        name: nginx
+        state: started
