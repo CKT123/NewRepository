@@ -1,0 +1,22 @@
+---
+- hosts: node
+  tasks:
+   - name: Deleting old ngnix default file
+     file:
+       path: /var/www/html/index.nginx-debian.html
+       state: absent
+   - name: Copying New ngnix default file
+     copy:
+       src: index1.html
+       dest: /var/www/html/index.html
+     notify:
+       - restart nginx
+   - name: Ensuring NGINX is runing
+     service:
+       name: nginx
+       state: started
+  handlers:
+   - name: restart nginx
+     service:
+       name: nginx
+       state: restarted
